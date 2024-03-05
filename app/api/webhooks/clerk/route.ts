@@ -70,6 +70,7 @@ export async function POST(req: Request) {
       photo: image_url,
     };
 
+    console.log('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
     const newUser = await createUser(user);
 
     // Set public metadata
