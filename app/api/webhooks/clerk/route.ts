@@ -8,6 +8,7 @@ import { Webhook } from "svix";
 import { createUser, deleteUser, updateUser } from "@/lib/actions/user.actions";
 
 export async function POST(req: Request) {
+  console.error('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
   // You can find this in the Clerk Dashboard -> Webhooks -> choose the webhook
   const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET;
 
@@ -17,6 +18,7 @@ export async function POST(req: Request) {
     );
   }
 
+  console.error('BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB')
   // Get the headers
   const headerPayload = headers();
   const svix_id = headerPayload.get("svix-id");
@@ -52,7 +54,7 @@ export async function POST(req: Request) {
       status: 400,
     });
   }
-
+  console.error('CCCCCCCCCCCCCCCCCCCCCCCCCCCCCC')
   // Get the ID and type
   const { id } = evt.data;
   const eventType = evt.type;
@@ -70,7 +72,7 @@ export async function POST(req: Request) {
       photo: image_url,
     };
 
-    console.log('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
+    console.error('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
     const newUser = await createUser(user);
 
     // Set public metadata
